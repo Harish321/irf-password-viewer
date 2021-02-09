@@ -1,0 +1,31 @@
+{
+    "manifest_version": 2,
+    "name": "Irf Password Viewer",
+    "description": "This Extension will enable user to see/unsee password quickly",
+    "version": "1.0",
+    "icons": {
+      "128": "icons/icon128.png",
+      "48": "icons/icon48.png",
+      "16": "icons/icon16.png"
+    },
+  
+    "browser_action": {
+      "default_icon": "icons/icon16.png",
+      "default_popup": "popup.html"
+    },
+  
+    "content_scripts": [
+      {
+        "matches": [
+            "https://*.perdix.co.in/perdix-client/*","http://*.perdix.co.in/perdix-client/*"
+        ],
+        "include_globs" :   ["*/#/Login*"],
+        "js": ["src/content.min.js"]
+      }
+    ],
+  
+    "permissions": [
+            "clipboardWrite",
+            "clipboardRead"
+          ]
+  }
